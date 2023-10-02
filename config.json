@@ -1,9 +1,9 @@
 {
     "prefix": "-",
-    "imageSaveChannel": "1141328893622628475",
-    "giveAwayEmoji": "🎉",
+    "imageSaveChannel": "",
+    "giveAwayEmoji": "",
     "language": "ar",
-    "Token" : "NzkwNjU4NDk0ODQzMzIyMzY4.GnhbQT.4gKFrceK-RsvvtWc2hn2oPCmQQaNd5SEXK4Csg",
-    "Mongoose" : "mongodb+srv://kils:011maz787@cluster0.d3re0.mongodb.net/racoonBot",
+    "Token" : "",
+    "Mongoose" : "",
     "embedColor": "#151d7a"
 }
