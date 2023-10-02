@@ -1,0 +1,64 @@
+{
+    "languageInfo": {
+        "name": "Français",
+        "flag": "🇫🇷"
+    },
+    "events": {
+        "coolDown": "Vous avez utilisé cette commande rapidement, vous devez attendre",
+        "seconds": "secondes",
+        "permission": "Vous n'avez pas la permission d'utiliser cette commande"
+    },
+    "setprefix": {
+        "longPrefix": "Le préfixe est trop long, plus de 2 caractères",
+        "successfully": "Le préfixe a été modifié avec succès en",
+        "samePrefix": "Vous devez changer le préfixe pour un autre (vous ne pouvez pas utiliser le même préfixe)"
+    },
+    "setlanguage": {
+        "menuPlaceholder": "Choisissez la langue",
+        "successfully": "La langue a été modifiée avec succès en"
+    },
+    "giveAway": {
+        "prizeCollect": "Quel cadeau souhaitez-vous offrir?",
+        "winnersNumberCollect": "Combien de gagnants peuvent remporter le prix?",
+        "endDateCollect": "Quelle est l'heure de tirage des gagnants du prix?",
+        "toManyWinners": "Le nombre de gagnants est trop élevé, il est conseillé d'utiliser un nombre plus petit.",
+        "soLongTime": "La durée du concours est trop longue, essayez d'utiliser un laps de temps plus court.",
+        "soShortTime": "Le temps est trop court, il doit être supérieur à 30 secondes.",
+        "giveAwayTypePlaceHolder": "Choisissez le type de cadeau",
+        "giveAwayTypeReactions": "Réactions",
+        "giveAwayTypeButtons": "Boutons",
+        "end": {
+            "NotAvailable": "Je n'ai pas pu trouver de cadeau actif avec cet identifiant.",
+            "end": "Le concours est terminé.",
+            "msg": "Je n'ai pas pu trouver le message."
+        },        
+        "embedSend": {
+            "title": "Début du concours",
+            "prize": "Prix",
+            "winners": "Gagnants",
+            "hostedBy": "Organisé par",
+            "Entries": "Participations",
+            "EndsAfter": "Se termine après",
+            "ended": "Terminé avant",
+            "Entry": "Participation",
+            "entered": "A participé au concours",
+            "left": "A quitté le concours"
+        },
+        "embedEndOfGiveAway": {
+            "Title": "Gagnants du concours",
+            "Description": "Félicitations aux gagnants suivants :"
+        },
+        "embedNotEnoughParticipants": {
+            "Title": "Gagnant Non Déterminé",
+            "Description": "Désolé, il n'y a pas assez de participants pour déterminer un gagnant."
+        },
+        "groll": {
+            "notFound": "Impossible de trouver un cadeau actif avec cet ID ou il n'est pas encore terminé."
+        }
+    },         
+    "ticketSetup": {
+        "errorEmbed": {
+            "title": "Erreur dans la commande"
+        }
+    }
+}

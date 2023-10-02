@@ -1,0 +1,64 @@
+{
+    "languageInfo": {
+        "name": "Español",
+        "flag": "🇪🇸"
+    },
+    "events": {
+        "coolDown": "Has utilizado este comando rápidamente, debes esperar",
+        "seconds": "segundos",
+        "permission": "No tienes permiso para usar este comando"
+    },
+    "setprefix": {
+        "longPrefix": "El prefijo es demasiado largo, más de 2 caracteres",
+        "successfully": "El prefijo se ha cambiado exitosamente a",
+        "samePrefix": "Debes cambiar el prefijo a uno diferente (no puedes usar el mismo prefijo)"
+    },
+    "setlanguage": {
+        "menuPlaceholder": "Elige el idioma",
+        "successfully": "El idioma se ha cambiado exitosamente a"
+    },
+    "giveAway": {
+        "prizeCollect": "¿Qué regalo te gustaría sortear?",
+        "winnersNumberCollect": "¿Cuántos ganadores pueden ganar el premio?",
+        "endDateCollect": "¿Cuál es la hora para sortear a los ganadores del premio?",
+        "toManyWinners": "El número de ganadores es demasiado grande, se recomienda usar un número más pequeño.",
+        "soLongTime": "La duración del concurso es demasiado larga, intenta usar un intervalo de tiempo más corto.",
+        "soShortTime": "El tiempo es demasiado corto, debe ser mayor a 30 segundos.",
+        "giveAwayTypePlaceHolder": "Elige el tipo de sorteo",
+        "giveAwayTypeReactions": "Reacciones",
+        "giveAwayTypeButtons": "Botones",
+        "end": {
+            "NotAvailable": "No pude encontrar un sorteo activo con esta ID.",
+            "end": "El sorteo ha terminado.",
+            "msg": "No pude encontrar el mensaje."
+        },        
+        "embedSend": {
+            "title": "Inicio del sorteo",
+            "prize": "Premio",
+            "winners": "Ganadores",
+            "hostedBy": "Organizado por",
+            "Entries": "Participantes",
+            "EndsAfter": "Finaliza después de",
+            "ended": "Terminó antes",
+            "Entry": "Participante",
+            "entered": "Participó en el sorteo",
+            "left": "Abandonó el sorteo"
+        },
+        "embedEndOfGiveAway": {
+            "Title": "Ganadores del Sorteo",
+            "Description": "Felicidades a los siguientes ganadores:"
+        },
+        "embedNotEnoughParticipants": {
+            "Title": "Ganador No Determinado",
+            "Description": "Lo siento, no hay suficientes participantes para determinar un ganador."
+        },
+        "groll": {
+            "notFound": "No se pudo encontrar un sorteo activo con esta ID o aún no ha terminado."
+        }
+    },         
+    "ticketSetup": {
+        "errorEmbed": {
+            "title": "Error en el comando"
+        }
+    }
+}

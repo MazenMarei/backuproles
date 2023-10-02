@@ -1,0 +1,198 @@
+const {Client , Message ,PermissionsBitField,Modal,TextInputBuilder , StringSelectMenuBuilder , StringSelectMenuOptionBuilder , ActionRowBuilder , EmbedBuilder, messageLink , ButtonBuilder , ButtonStyle , ModalBuilder} = require("discord.js")
+const runningCmd = new Map()  
+let langExample = require("../../../language/ar.json");
+const rolesBackupConfig = require("../../../models/guildrolebackup")
+const {menuCreate} = require("../../Functions/menupages");
+// const { A } = require("@discordjs/core/dist/files-74da8658");
+
+/**
+ * 
+ * @param {Client} client
+ * @param {Message} message 
+ * @param {String[]} args 
+ * @param {langExample} language 
+ * @param {Array} otherInfo 
+ */
+
+
+
+module.exports.run = async (client , message, args,language,otherInfo , runningCmd) => {
+    
+    let roleBackupTypeData = {
+        type :null,
+        channel : null
+    }
+
+      /// configuration Message and embed <start>
+  const configurationembed = new EmbedBuilder()
+  .setColor("#7cdf80")
+  .setAuthor({name : message.author.username , iconURL : message.author.avatarURL()})
+  .setTitle(language.rolebackuptype.configurationEmbed.Title)
+  .setFooter({text : message.guild?.name , iconURL : message.guild?.iconURL() , })
+  .setTimestamp()
+  .setThumbnail( message.guild?.iconURL())
+  /// configuration embed <end>
+
+  /// check args type <start>
+  if (args?.length > 0) {
+    for (let argData of args) {
+      if (!roleBackupTypeData.type)        if (["auto" , "approval" ].includes(argData))  {
+        roleBackupTypeData.type = argData 
+        configurationembed.addFields({name : "> "+language.rolebackuptype.configurationEmbed.type , value : roleBackupTypeData.type === "auto"? "```"+language.rolebackuptype.roleBackupTypeMenu.menuoptions[0].label+"```": "```"+language.rolebackuptype.roleBackupTypeMenu.menuoptions[1].label+"```" , inline : true})
+    }
+      if (!roleBackupTypeData.channel)  if (message.guild.channels.cache.get(argData)?.type === 0) {
+        roleBackupTypeData.channel = argData
+        configurationembed.addFields({name : "> "+language.rolebackuptype.configurationEmbed.approvalChannel , value : `<#${argData}>` , inline : true})
+
+    }
+    
+    }
+  }
+  // check args type <end>
+
+
+  // send configuration embed <start>
+
+  let configurationMsg = await message.reply({embeds : [configurationembed]})
+  // send configuration embed <end>
+
+
+
+  /// setup role backup type <start>
+  if(!roleBackupTypeData.type) {
+
+    ///// build roles Backup Type menu <start>
+
+    let typedata = [
+      {
+        label : language.rolebackuptype.roleBackupTypeMenu.menuoptions[0].label,
+        value : "auto",
+        Description : language.rolebackuptype.roleBackupTypeMenu.menuoptions[0].Description,
+        Emoji : "✨"
+      },
+      {
+        label : language.rolebackuptype.roleBackupTypeMenu.menuoptions[1].label,
+        value : "approval",
+        Description : language.rolebackuptype.roleBackupTypeMenu.menuoptions[1].Description,
+        Emoji : "✅"
+      }
+    ]
+    // (pages , message , MenuPlaceholder , language , values)
+    let menuData = await menuCreate(typedata , configurationMsg,language.rolebackuptype.roleBackupTypeMenu.Placeholder, language , {MaxValues : 1 , MinValues : 1})
+    
+    if (menuData.canceled) {
+      runningCmd.delete(message.author.id)
+              return await configurationMsg.delete().catch(err => null)
+    }
+    ///// build roles Backup Type menu <end>
+
+    // ///// set the command is running <start>
+    // runningCmd.set(message.author.id , {running : module.exports.config.name , message_Link : messageLink(message.channelId,configurationMsg.id,message.guildId) })
+    // ///// set the command is running <end>
+
+    /// roles Backup Type Menu collector <start>
+
+    configurationembed.addFields({name : "> "+language.rolebackuptype.configurationEmbed.type , value : menuData.values[0][0] === "auto"?"```"+language.rolebackuptype.roleBackupTypeMenu.menuoptions[0].label+"```":"```"+language.rolebackuptype.roleBackupTypeMenu.menuoptions[1].label +"```", inline : true})
+    roleBackupTypeData.type = menuData.values[0][0]
+    await  configurationMsg.edit({embeds: [configurationembed], components: []})
+
+    /// roles Backup Type Menu collector <end>
+  }
+  /// setup role backup type <end>
+
+  /// setup role backup approval channel <start>
+  if(roleBackupTypeData.type === "approval" && !roleBackupTypeData.channel) {
+    /// setup channels menue <start>
+        let Guild_channels = message.guild.channels.cache.filter(a => a.type === 0).sort((a,b) => a?.rawPosition - b?.rawPosition).map((channel)=> ({
+          label : channel.name,
+          value : channel.id,
+          Description : channel?.parent.name?channel?.parent.name:language.ticketSetup.NoParent,
+        }))
+        let channelMenue = await menuCreate(Guild_channels , configurationMsg,language.rolebackuptype.approvalchannelmenu.channelsMenuPlaceholder, language , {MaxValues : 1 , MinValues : 1})
+        if (channelMenue.canceled) {
+          runningCmd.delete(message.author.id)
+                  return await configurationMsg.delete().catch(err => null)
+        }
+        try {
+            
+          configurationembed.addFields({name : "> "+language.rolebackuptype.configurationEmbed.approvalChannel , value : `<#${channelMenue.values[0]}>`, inline : true})
+          configurationMsg.edit({
+            components: [],
+            embeds : [configurationembed]
+          })
+          roleBackupTypeData.channel = channelMenue.values[0]
+        } catch (e) {
+          await message.reply({ content: language.ticketSetup.collectorError, components: [] });
+          runningCmd.delete(message.author.id)
+    
+        }
+      
+    /// setup channels menue <end>
+  }
+  /// setup role backup approval channel <end>
+
+
+//// check old data and add new <start>
+let dataChek = await rolesBackupConfig.findOneAndUpdate(
+  {guildId : message.guildId},
+  {    
+    guildId : message.guildId,
+    type: roleBackupTypeData.type,
+    channel: roleBackupTypeData.channel,
+  },
+  {
+    overwrite:false,
+    upsert :true,
+    new : true,
+    setDefaultsOnInsert : true
+  }
+  ).catch(err =>  false)
+  if(!dataChek)  {   
+  runningCmd.delete(message.author.id)    
+  let cmderrorembed = new EmbedBuilder()
+  .setTitle("> "+language.rolesbackup.noguilddataembed.title+" ❌")
+  .setDescription(`\`\`\`diff\n- ${language.rolesbackup.noguilddataembed.error2description}\n\`\`\``)
+  .setColor(16711680)
+  return message.reply({embeds: [cmderrorembed]}) 
+  }
+  configurationembed.setTitle(language.rolebackuptype.configurationEmbed.Title + "✅")
+  await configurationMsg.edit({components: [] , embeds : [configurationembed]})
+//// check old data and add new <end>
+
+  
+//// delete runningCmd
+runningCmd.delete(message.author.id)
+}
+
+
+module.exports.config = {
+    name:"rolebackupsetup",
+    description : "to setup roles backup type and configure it ",
+    aliases : ["rbt"],
+    coolDown : 20,
+    permissions:  new PermissionsBitField("Administrator").toArray(),
+    langFileName : "rolebackuptype",
+    options : [
+      {
+        name : "type",
+        type : 3,
+        description	: "roles backup type" , 
+        choices : [
+          {name : "auto join"     , value : "auto"} ,
+          {name : "approval"  , value : "approval"} ,
+        ],
+        required : true
+      },
+      {
+      type : 7,
+      name	:"approval_channel",
+      description	: "The channel you want to send the approval message in." , 
+      required : false ,
+    }
+  ],
+  Usage : {
+    en : "to setup roles backup type and configure it."
+  }
+    
+}
+

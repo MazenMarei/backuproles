@@ -1,0 +1,157 @@
+{
+    "languageInfo": {
+           "name": "English",
+           "flag": "🇺🇸"
+    },
+    "commands": {
+        "help" : {
+            "description": "Getting help."
+
+        },
+        "composition": {
+            "description": "Word Composition Game."
+        },
+        "decomposition": {
+            "description": "Word Decomposition Game."
+        },
+        "fast": {
+            "description": "Fast Word Typing Game."
+        },
+        "plural": {
+            "description": "Word Pluralization Game."
+        },
+        "singular": {
+            "description": "Word Singularization Game."
+        },
+        "flags": {
+            "description": "Guess the Country Name from the Flag Game."
+        },
+        "gstart": {
+            "description": "Start a New Giveaway."
+        },
+        "gend": {
+            "description": "End Giveaway."
+        },
+        "greroll": {
+            "description": "Pick a New Winner from the Specified Giveaway."
+        },
+        "ticketSetup": {
+            "description" : "to setup a ticket and configure it "
+        }
+    },
+    "events": {
+        "coolDown": "You used this command quickly, you must wait",
+        "seconds": "seconds",
+        "permission": "You do not have the permission to use the command"
+    },
+    "setprefix": {
+        "longPrefix": "The prefix is too long, more than 2 characters",
+        "successfully": "The prefix has been successfully changed to",
+        "samePrefix": "You must change the prefix to a different one (you cannot use the same prefix)"
+    },
+    "setlanguage": {
+        "menuPlaceholder": "Choose the language",
+        "successfully": "The language has been successfully changed to"
+    },
+    "giveAway": {
+        "prizeCollect": "What gift would you like to give away?",
+        "winnersNumberCollect": "How many winners can win the prize?",
+        "endDateCollect": "What is the time to draw the winners of the prize?",
+        "toManyWinners": "The number of winners is too large, it is advisable to use a smaller number.",
+        "soLongTime": "The contest duration is too long, try using a shorter timing.",
+        "soShortTime": "Time is too short, it must be greater than 30 seconds.",
+        "giveAwayTypePlaceHolder": "Choose the giveaway type",
+        "giveAwayTypeReactions": "Reactions",
+        "giveAwayTypeButtons": "Buttons",
+        "end": {
+            "NotAvailable": "I couldn't find an active giveaway with this ID.",
+            "end": "Giveaway has ended.",
+            "msg": "I couldn't find the message."
+        },        
+        "embedSend": {
+            "title": "Giveaway Started",
+            "prize": "Prize",
+            "winners": "Winners",
+            "hostedBy": "Hosted by",
+            "Entries": "Entries",
+            "EndsAfter": "Ends after",
+            "ended": "Ended before",
+            "Entry": "Entry",
+            "entered": "Entered the giveaway",
+            "left": "Left the giveaway"
+        },
+        "embedEndOfGiveAway": {
+            "Title": "Winners of the Giveaway",
+            "Description": "Congratulations to the following winners:"
+        },
+        "embedNotEnoughParticipants": {
+            "Title": "Winner Not Determined",
+            "Description": "Sorry, there are not enough participants to determine a winner."
+        },
+        "groll": {
+        "notFound": "Giveaway not found or has not ended yet."
+           }
+    },      
+    "games": {
+        "fast": {
+        "winner": "Congratulations! You won. Victory achieved at:",
+        "endTime": "The time has ended, and no one has won."
+        },
+        "flags": {
+            "cmd": {
+                "description": "Guess the Country Name from the Flag Game"
+            },
+            "countryName": "Country Name",
+            "embed": {
+                "Description": "Guess the country's name in less than 15 seconds",
+                "title": "Guess the Country"
+            }
+        }
+        
+        },   
+        "ticketSetup": {
+            "description" : "to setup a ticket and configure it ",
+            "errorEmbed": {
+                "title": "Command Error"
+            },
+            "runningCmdErrorEmbed": {
+                "error": "Error",
+                "value": "There is already a running command."
+            },
+            "ticket_configuration_embed": {
+                "Title": "Ticket Configuration",
+                "Ticket_Type": "Ticket Type",
+                "Ticket_channel": "Ticket Channel",
+                "Ticket_category": "Ticket Category",
+                "Ticket_message": "Ticket Message"
+            },
+            "ticket_type_menu": {
+                "Placeholder": "Select the ticket type you want to set up.",
+                "menuTicket": "Menu Ticket",
+                "buttonsTicket": "Buttons Ticket",
+                "reactionsTicket": "Reactions Ticket"
+            },
+            "collectorError": "Confirmation not received within 1 minute, cancelling.",
+            "channelsMenuPlaceholder": "Select the channel you want to send the ticket message in.",
+            "NoParent": "No Category",
+            "save" : "Save",
+            "send" : "Send",
+            "delete" : "Delete",
+            "messageTypeMenu" : {
+                "Placeholder" : "Select the message type you want to set up.",
+                "messageIdDescription" : "To specify the ID of a message that has already been sent.",
+                "messageEmbedDescription" : "To send message using the bot."
+            },
+            "messageModal" : {
+                "Title" : "Template for Message Configuration.",
+                "messageIdFieldLabel" : "Message ID",
+                "messageIdFieldPlaceHolder" : "Please specify the message ID to which you want to add reactions.",
+                "openTicketMsgEmbedTitleLabel" : "Open ticket embed title"
+    
+            }
+        }  
+        ,"rolebackuptype" : {
+            "description" : "lol"
+        }
+
+}

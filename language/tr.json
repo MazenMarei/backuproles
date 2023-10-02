@@ -1,0 +1,64 @@
+{
+    "languageInfo": {
+        "name": "Türkçe",
+        "flag": "🇹🇷"
+    },
+    "events": {
+        "coolDown": "Bu komutu hızlıca kullandınız, beklemelisiniz",
+        "seconds": "saniye",
+        "permission": "Bu komutu kullanma izniniz yok"
+    },
+    "setprefix": {
+        "longPrefix": "Önek çok uzun, 2 karakterden fazla",
+        "successfully": "Önek başarıyla değiştirildi",
+        "samePrefix": "Öneki farklı bir şeyle değiştirmelisiniz (aynı öneki kullanamazsınız)"
+    },
+    "setlanguage": {
+        "menuPlaceholder": "Dili seçin",
+        "successfully": "Dil başarıyla değiştirildi"
+    },
+    "giveAway": {
+        "prizeCollect": "Hangi hediye dağıtılacak?",
+        "winnersNumberCollect": "Kaç kazanan ödül kazanabilir?",
+        "endDateCollect": "Kazananların çekiliş zamanı nedir?",
+        "toManyWinners": "Kazanan sayısı çok büyük, daha küçük bir sayı kullanmanız önerilir.",
+        "soLongTime": "Yarışma süresi çok uzun, daha kısa bir süre kullanmayı deneyin.",
+        "soShortTime": "Zaman çok kısa, 30 saniyeden büyük olmalıdır.",
+        "giveAwayTypePlaceHolder": "Çekiliş türünü seçin",
+        "giveAwayTypeReactions": "Tepkiler",
+        "giveAwayTypeButtons": "Düğmeler",
+        "end": {
+            "NotAvailable": "Bu kimliğe sahip etkin bir çekilişi bulamadım.",
+            "end": "Çekiliş sona erdi.",
+            "msg": "Mesajı bulamadım."
+        },        
+        "embedSend": {
+            "title": "Çekiliş Başladı",
+            "prize": "Ödül",
+            "winners": "Kazananlar",
+            "hostedBy": "Sunan",
+            "Entries": "Katılımlar",
+            "EndsAfter": "Bitişten sonra",
+            "ended": "Önce bitti",
+            "Entry": "Katılım",
+            "entered": "Çekilişe katıldı",
+            "left": "Çekilişi terk etti"
+        },
+        "embedEndOfGiveAway": {
+            "Title": "Çekilişin Kazananları",
+            "Description": "Aşağıdaki kazananları tebrik ederiz:"
+        },
+        "embedNotEnoughParticipants": {
+            "Title": "Kazanan Belirlenemedi",
+            "Description": "Üzgünüm, bir kazanan belirlemek için yeterli katılımcı yok."
+        },
+        "groll": {
+            "notFound": "Çekiliş bulunamadı veya henüz sona ermedi."
+        }
+    },         
+    "ticketSetup": {
+        "errorEmbed": {
+            "title": "Komutta Hata"
+        }
+    }
+}
